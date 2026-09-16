@@ -1,0 +1,3130 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+        content="Mohamed Elkhabaty - AWS Cloud Engineer Portfolio. Explore cloud architecture, AWS, DevOps, networking and security projects.">
+
+    <meta name="keywords"
+        content="Mohamed Elkhabaty, AWS Cloud Engineer, AWS, Cloud, DevOps, Terraform, Cloud Security, Networking">
+
+    <meta name="author" content="Mohamed Elkhabaty">
+
+    <meta name="theme-color" content="#0b0f19">
+
+    <title>Mohamed Elkhabaty | AWS Cloud Engineer</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <style>
+
+        /* =========================================================
+           ROOT
+        ========================================================= */
+
+        :root {
+            --bg-dark: #080c14;
+            --bg-secondary: #0d1320;
+            --card-bg: rgba(19, 27, 42, 0.72);
+
+            --aws-orange: #ff9900;
+            --aws-orange-dark: #e88a00;
+
+            --aws-cyan: #00d2ff;
+            --aws-blue: #1e90ff;
+
+            --text-main: #f5f7fa;
+            --text-muted: #9ca6b5;
+
+            --border-color: rgba(255, 255, 255, 0.09);
+
+            --success: #22c55e;
+
+            --container: 1180px;
+
+            --radius: 16px;
+
+            --transition: 0.3s ease;
+        }
+
+
+        /* =========================================================
+           RESET
+        ========================================================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        html {
+            scroll-padding-top: 90px;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+
+            background:
+                radial-gradient(
+                    circle at 10% 10%,
+                    rgba(255, 153, 0, 0.08),
+                    transparent 35%
+                ),
+                radial-gradient(
+                    circle at 90% 80%,
+                    rgba(0, 210, 255, 0.07),
+                    transparent 35%
+                ),
+                var(--bg-dark);
+
+            color: var(--text-main);
+
+            line-height: 1.6;
+
+            overflow-x: hidden;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        button {
+            font-family: inherit;
+        }
+
+        ::selection {
+            background: var(--aws-orange);
+            color: #000;
+        }
+
+
+        /* =========================================================
+           CONTAINER
+        ========================================================= */
+
+        .container {
+            width: min(var(--container), 90%);
+            margin: auto;
+        }
+
+
+        /* =========================================================
+           HEADER
+        ========================================================= */
+
+        header {
+            position: fixed;
+
+            top: 0;
+            left: 0;
+
+            width: 100%;
+
+            z-index: 1000;
+
+            padding: 18px 5%;
+
+            background: rgba(8, 12, 20, 0.78);
+
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .header-inner {
+            max-width: var(--container);
+
+            margin: auto;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            gap: 30px;
+        }
+
+
+        /* Logo */
+
+        .logo {
+            display: flex;
+
+            align-items: center;
+
+            gap: 10px;
+
+            font-size: 1.2rem;
+
+            font-weight: 800;
+
+            white-space: nowrap;
+        }
+
+        .logo i {
+            color: var(--aws-orange);
+
+            font-size: 1.6rem;
+        }
+
+        .logo span {
+            color: var(--aws-orange);
+        }
+
+
+        /* Navigation */
+
+        .nav-wrapper {
+            display: flex;
+
+            align-items: center;
+
+            gap: 30px;
+        }
+
+        nav {
+            display: flex;
+
+            gap: 26px;
+        }
+
+        nav a {
+            position: relative;
+
+            color: var(--text-muted);
+
+            font-size: 0.9rem;
+
+            font-weight: 600;
+
+            transition: var(--transition);
+        }
+
+        nav a::after {
+            content: "";
+
+            position: absolute;
+
+            left: 0;
+            bottom: -7px;
+
+            width: 0;
+            height: 2px;
+
+            background: var(--aws-orange);
+
+            transition: var(--transition);
+        }
+
+        nav a:hover {
+            color: var(--text-main);
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+
+        /* Social */
+
+        .header-socials {
+            display: flex;
+
+            align-items: center;
+
+            gap: 16px;
+
+            padding-left: 24px;
+
+            border-left: 1px solid var(--border-color);
+        }
+
+        .header-socials a {
+            color: var(--text-muted);
+
+            font-size: 1.1rem;
+
+            transition: var(--transition);
+        }
+
+        .header-socials a:hover {
+            color: var(--aws-orange);
+
+            transform: translateY(-3px);
+        }
+
+
+        /* Mobile Menu */
+
+        .menu-toggle {
+            display: none;
+
+            border: 1px solid var(--border-color);
+
+            background: rgba(255, 255, 255, 0.04);
+
+            color: var(--text-main);
+
+            width: 42px;
+            height: 42px;
+
+            border-radius: 10px;
+
+            cursor: pointer;
+
+            font-size: 1.1rem;
+        }
+
+
+        /* =========================================================
+           HERO
+        ========================================================= */
+
+        .hero {
+            min-height: 100vh;
+
+            max-width: var(--container);
+
+            width: 90%;
+
+            margin: auto;
+
+            display: grid;
+
+            grid-template-columns: 1.2fr 0.8fr;
+
+            align-items: center;
+
+            gap: 80px;
+
+            padding-top: 120px;
+
+            padding-bottom: 70px;
+        }
+
+        .hero-content {
+            max-width: 680px;
+        }
+
+
+        /* Badge */
+
+        .hero-badge {
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 9px;
+
+            padding: 8px 15px;
+
+            margin-bottom: 22px;
+
+            border-radius: 50px;
+
+            background: rgba(255, 153, 0, 0.09);
+
+            border: 1px solid rgba(255, 153, 0, 0.22);
+
+            color: var(--aws-orange);
+
+            font-size: 0.82rem;
+
+            font-weight: 700;
+        }
+
+        .hero-badge .status-dot {
+            width: 7px;
+            height: 7px;
+
+            border-radius: 50%;
+
+            background: var(--success);
+
+            box-shadow: 0 0 10px rgba(34, 197, 94, 0.7);
+        }
+
+
+        /* Heading */
+
+        .hero h1 {
+            font-size: clamp(2.7rem, 5vw, 4.7rem);
+
+            line-height: 1.08;
+
+            font-weight: 800;
+
+            letter-spacing: -2px;
+
+            margin-bottom: 25px;
+        }
+
+        .gradient-text {
+            background:
+                linear-gradient(
+                    135deg,
+                    #ffffff 20%,
+                    var(--aws-orange) 65%,
+                    var(--aws-cyan)
+                );
+
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+
+        /* Hero Description */
+
+        .hero-description {
+            max-width: 620px;
+
+            color: var(--text-muted);
+
+            font-size: 1.05rem;
+
+            margin-bottom: 32px;
+        }
+
+
+        /* Buttons */
+
+        .btn-group {
+            display: flex;
+
+            flex-wrap: wrap;
+
+            gap: 13px;
+
+            margin-bottom: 38px;
+        }
+
+        .btn {
+            display: inline-flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            gap: 9px;
+
+            padding: 12px 21px;
+
+            border-radius: 9px;
+
+            font-size: 0.9rem;
+
+            font-weight: 700;
+
+            transition: var(--transition);
+        }
+
+        .btn-primary {
+            background: linear-gradient(
+                135deg,
+                var(--aws-orange),
+                var(--aws-orange-dark)
+            );
+
+            color: #080808;
+
+            box-shadow:
+                0 10px 30px rgba(255, 153, 0, 0.15);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+
+            box-shadow:
+                0 15px 35px rgba(255, 153, 0, 0.3);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.045);
+
+            border: 1px solid var(--border-color);
+
+            color: var(--text-main);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.09);
+
+            transform: translateY(-3px);
+        }
+
+
+        /* Hero Stats */
+
+        .hero-stats {
+            display: flex;
+
+            gap: 35px;
+
+            flex-wrap: wrap;
+        }
+
+        .stat {
+            display: flex;
+
+            flex-direction: column;
+        }
+
+        .stat strong {
+            font-size: 1.4rem;
+
+            color: var(--text-main);
+        }
+
+        .stat span {
+            color: var(--text-muted);
+
+            font-size: 0.75rem;
+        }
+
+
+        /* =========================================================
+           PROFILE IMAGE
+        ========================================================= */
+
+        .hero-image-area {
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            position: relative;
+        }
+
+        .hero-image-wrapper {
+            position: relative;
+        }
+
+        .hero-image-wrapper::before {
+            content: "";
+
+            position: absolute;
+
+            inset: -45px;
+
+            border-radius: 50%;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    var(--aws-orange),
+                    var(--aws-cyan)
+                );
+
+            filter: blur(55px);
+
+            opacity: 0.18;
+
+            z-index: -1;
+        }
+
+        .profile-img {
+            width: 330px;
+            height: 330px;
+
+            object-fit: cover;
+
+            border-radius: 50%;
+
+            border: 3px solid rgba(255, 153, 0, 0.55);
+
+            box-shadow:
+                0 25px 70px rgba(0, 0, 0, 0.55);
+
+            transition: var(--transition);
+        }
+
+        .profile-img:hover {
+            transform: scale(1.03);
+
+            border-color: var(--aws-orange);
+        }
+
+
+        /* Floating AWS Badge */
+
+        .floating-badge {
+            position: absolute;
+
+            right: -25px;
+            bottom: 15px;
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 10px;
+
+            padding: 11px 15px;
+
+            background: rgba(16, 23, 37, 0.9);
+
+            border: 1px solid var(--border-color);
+
+            border-radius: 12px;
+
+            backdrop-filter: blur(12px);
+
+            box-shadow:
+                0 15px 35px rgba(0, 0, 0, 0.35);
+        }
+
+        .floating-badge i {
+            color: var(--aws-orange);
+        }
+
+        .floating-badge span {
+            font-size: 0.75rem;
+
+            color: var(--text-muted);
+        }
+
+        .floating-badge strong {
+            display: block;
+
+            font-size: 0.8rem;
+        }
+
+
+        /* =========================================================
+           SECTION
+        ========================================================= */
+
+        section {
+            padding: 100px 0;
+        }
+
+        .section-header {
+            text-align: center;
+
+            max-width: 700px;
+
+            margin: 0 auto 55px;
+        }
+
+        .section-label {
+            color: var(--aws-orange);
+
+            font-size: 0.75rem;
+
+            font-weight: 800;
+
+            letter-spacing: 2px;
+
+            text-transform: uppercase;
+
+            margin-bottom: 10px;
+        }
+
+        .section-header h2 {
+            font-size: clamp(2rem, 4vw, 2.8rem);
+
+            line-height: 1.15;
+
+            margin-bottom: 12px;
+        }
+
+        .section-header p {
+            color: var(--text-muted);
+
+            font-size: 0.95rem;
+        }
+
+
+        /* =========================================================
+           ABOUT
+        ========================================================= */
+
+        .about-grid {
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 25px;
+        }
+
+        .about-card {
+            background: var(--card-bg);
+
+            border: 1px solid var(--border-color);
+
+            border-radius: var(--radius);
+
+            padding: 30px;
+
+            backdrop-filter: blur(12px);
+
+            transition: var(--transition);
+        }
+
+        .about-card:hover {
+            transform: translateY(-5px);
+
+            border-color: rgba(255, 153, 0, 0.3);
+        }
+
+        .about-card h3 {
+            margin-bottom: 14px;
+
+            font-size: 1.2rem;
+        }
+
+        .about-card p {
+            color: var(--text-muted);
+
+            font-size: 0.9rem;
+        }
+
+        .about-list {
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 15px;
+
+            margin-top: 20px;
+        }
+
+        .about-item {
+            display: flex;
+
+            align-items: center;
+
+            gap: 10px;
+
+            color: var(--text-muted);
+
+            font-size: 0.82rem;
+        }
+
+        .about-item i {
+            color: var(--aws-orange);
+
+            width: 18px;
+        }
+
+
+        /* =========================================================
+           EXPERIENCE
+        ========================================================= */
+
+        .timeline {
+            max-width: 850px;
+
+            margin: auto;
+
+            position: relative;
+        }
+
+        .timeline::before {
+            content: "";
+
+            position: absolute;
+
+            left: 10px;
+
+            top: 0;
+            bottom: 0;
+
+            width: 1px;
+
+            background: var(--border-color);
+        }
+
+        .timeline-item {
+            position: relative;
+
+            padding-left: 45px;
+
+            margin-bottom: 35px;
+        }
+
+        .timeline-dot {
+            position: absolute;
+
+            left: 4px;
+            top: 5px;
+
+            width: 13px;
+            height: 13px;
+
+            border-radius: 50%;
+
+            background: var(--aws-orange);
+
+            box-shadow:
+                0 0 15px rgba(255, 153, 0, 0.5);
+        }
+
+        .timeline-card {
+            background: var(--card-bg);
+
+            border: 1px solid var(--border-color);
+
+            border-radius: var(--radius);
+
+            padding: 25px;
+
+            transition: var(--transition);
+        }
+
+        .timeline-card:hover {
+            transform: translateX(5px);
+
+            border-color: rgba(255, 153, 0, 0.25);
+        }
+
+        .timeline-date {
+            color: var(--aws-orange);
+
+            font-size: 0.75rem;
+
+            font-weight: 700;
+
+            margin-bottom: 7px;
+        }
+
+        .timeline-card h3 {
+            font-size: 1.1rem;
+
+            margin-bottom: 4px;
+        }
+
+        .timeline-card h4 {
+            color: var(--aws-cyan);
+
+            font-size: 0.85rem;
+
+            font-weight: 600;
+
+            margin-bottom: 12px;
+        }
+
+        .timeline-card p {
+            color: var(--text-muted);
+
+            font-size: 0.85rem;
+        }
+
+
+        /* =========================================================
+           CERTIFICATIONS
+        ========================================================= */
+
+        .certs-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(auto-fit, minmax(300px, 1fr));
+
+            gap: 24px;
+        }
+
+        .cert-card {
+            background: var(--card-bg);
+
+            border: 1px solid var(--border-color);
+
+            border-radius: var(--radius);
+
+            overflow: hidden;
+
+            transition: var(--transition);
+        }
+
+        .cert-card:hover {
+            transform: translateY(-7px);
+
+            border-color: rgba(255, 153, 0, 0.35);
+
+            box-shadow:
+                0 20px 50px rgba(0, 0, 0, 0.3);
+        }
+
+        .cert-preview {
+            height: 210px;
+
+            background: #111827;
+
+            position: relative;
+
+            overflow: hidden;
+
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .cert-preview iframe {
+            width: 100%;
+            height: 100%;
+
+            border: 0;
+        }
+
+        .cert-body {
+            padding: 22px;
+        }
+
+        .cert-body h3 {
+            font-size: 1rem;
+
+            line-height: 1.4;
+
+            margin-bottom: 9px;
+        }
+
+        .cert-body p {
+            color: var(--text-muted);
+
+            font-size: 0.8rem;
+
+            margin-bottom: 18px;
+        }
+
+        .cert-meta {
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            padding-top: 15px;
+
+            border-top: 1px solid var(--border-color);
+        }
+
+        .issued {
+            color: var(--aws-cyan);
+
+            font-size: 0.72rem;
+        }
+
+        .verify-btn {
+            color: var(--aws-orange);
+
+            font-size: 0.78rem;
+
+            font-weight: 700;
+
+            display: inline-flex;
+
+            gap: 6px;
+
+            align-items: center;
+        }
+
+        .verify-btn:hover {
+            text-decoration: underline;
+        }
+
+
+        /* =========================================================
+           SKILLS
+        ========================================================= */
+
+        .skills-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(auto-fit, minmax(260px, 1fr));
+
+            gap: 20px;
+        }
+
+        .skill-card {
+            background: var(--card-bg);
+
+            border: 1px solid var(--border-color);
+
+            padding: 26px;
+
+            border-radius: var(--radius);
+
+            transition: var(--transition);
+        }
+
+        .skill-card:hover {
+            transform: translateY(-5px);
+
+            border-color: rgba(255, 153, 0, 0.3);
+        }
+
+        .skill-icon {
+            width: 48px;
+            height: 48px;
+
+            display: grid;
+
+            place-items: center;
+
+            border-radius: 12px;
+
+            background: rgba(255, 153, 0, 0.09);
+
+            color: var(--aws-orange);
+
+            font-size: 1.3rem;
+
+            margin-bottom: 17px;
+        }
+
+        .skill-card h3 {
+            font-size: 1rem;
+
+            margin-bottom: 15px;
+        }
+
+        .tags {
+            display: flex;
+
+            flex-wrap: wrap;
+
+            gap: 7px;
+        }
+
+        .tag {
+            padding: 6px 9px;
+
+            border-radius: 6px;
+
+            background: rgba(255, 255, 255, 0.045);
+
+            border: 1px solid var(--border-color);
+
+            color: var(--text-muted);
+
+            font-size: 0.72rem;
+        }
+
+
+        /* =========================================================
+           PROJECTS
+        ========================================================= */
+
+        .projects-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(auto-fit, minmax(340px, 1fr));
+
+            gap: 25px;
+        }
+
+        .project-card {
+            background: var(--card-bg);
+
+            border: 1px solid var(--border-color);
+
+            border-radius: var(--radius);
+
+            overflow: hidden;
+
+            transition: var(--transition);
+        }
+
+        .project-card:hover {
+            transform: translateY(-7px);
+
+            border-color: rgba(255, 153, 0, 0.3);
+        }
+
+        .project-content {
+            padding: 28px;
+        }
+
+        .project-number {
+            color: var(--aws-orange);
+
+            font-size: 0.75rem;
+
+            font-weight: 800;
+
+            margin-bottom: 12px;
+        }
+
+        .project-card h3 {
+            font-size: 1.25rem;
+
+            margin-bottom: 10px;
+        }
+
+        .project-card p {
+            color: var(--text-muted);
+
+            font-size: 0.85rem;
+
+            margin-bottom: 20px;
+        }
+
+
+        /* Architecture Diagram */
+
+        .architecture {
+            min-height: 160px;
+
+            padding: 25px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            gap: 8px;
+
+            flex-wrap: wrap;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(255, 153, 0, 0.03),
+                    rgba(0, 210, 255, 0.03)
+                );
+
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .arch-node {
+            display: flex;
+
+            flex-direction: column;
+
+            align-items: center;
+
+            justify-content: center;
+
+            width: 70px;
+            height: 65px;
+
+            background: rgba(255, 255, 255, 0.045);
+
+            border: 1px solid var(--border-color);
+
+            border-radius: 10px;
+
+            font-size: 0.65rem;
+
+            text-align: center;
+
+            gap: 5px;
+        }
+
+        .arch-node i {
+            color: var(--aws-orange);
+
+            font-size: 1.1rem;
+        }
+
+        .arch-arrow {
+            color: var(--aws-cyan);
+
+            font-size: 0.8rem;
+        }
+
+        .project-footer {
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            gap: 15px;
+
+            padding-top: 18px;
+
+            border-top: 1px solid var(--border-color);
+        }
+
+        .project-links {
+            display: flex;
+
+            gap: 12px;
+        }
+
+        .project-links a {
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 6px;
+
+            font-size: 0.75rem;
+
+            color: var(--text-muted);
+
+            transition: var(--transition);
+        }
+
+        .project-links a:hover {
+            color: var(--aws-orange);
+        }
+
+
+        /* =========================================================
+           CONTACT
+        ========================================================= */
+
+        .contact-box {
+            position: relative;
+
+            overflow: hidden;
+
+            text-align: center;
+
+            padding: 65px 30px;
+
+            background:
+                radial-gradient(
+                    circle at center,
+                    rgba(255, 153, 0, 0.1),
+                    transparent 55%
+                ),
+                var(--card-bg);
+
+            border: 1px solid var(--border-color);
+
+            border-radius: 22px;
+        }
+
+        .contact-box h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+
+            margin-bottom: 15px;
+        }
+
+        .contact-box p {
+            max-width: 600px;
+
+            margin: auto auto 28px;
+
+            color: var(--text-muted);
+
+            font-size: 0.9rem;
+        }
+
+        .contact-links {
+            display: flex;
+
+            justify-content: center;
+
+            flex-wrap: wrap;
+
+            gap: 12px;
+        }
+
+
+        /* =========================================================
+           FOOTER
+        ========================================================= */
+
+        footer {
+            border-top: 1px solid var(--border-color);
+
+            padding: 35px 0;
+
+            margin-top: 50px;
+        }
+
+        .footer-inner {
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            gap: 20px;
+
+            flex-wrap: wrap;
+        }
+
+        .footer-copy {
+            color: var(--text-muted);
+
+            font-size: 0.75rem;
+        }
+
+        .footer-socials {
+            display: flex;
+
+            gap: 15px;
+        }
+
+        .footer-socials a {
+            width: 38px;
+            height: 38px;
+
+            display: grid;
+
+            place-items: center;
+
+            border: 1px solid var(--border-color);
+
+            border-radius: 9px;
+
+            color: var(--text-muted);
+
+            transition: var(--transition);
+        }
+
+        .footer-socials a:hover {
+            color: var(--aws-orange);
+
+            border-color: rgba(255, 153, 0, 0.4);
+
+            transform: translateY(-3px);
+        }
+
+
+        /* =========================================================
+           BACK TO TOP
+        ========================================================= */
+
+        #backToTop {
+            position: fixed;
+
+            right: 25px;
+            bottom: 25px;
+
+            width: 45px;
+            height: 45px;
+
+            border: 1px solid var(--border-color);
+
+            border-radius: 10px;
+
+            background: rgba(15, 22, 35, 0.9);
+
+            color: var(--aws-orange);
+
+            cursor: pointer;
+
+            display: none;
+
+            z-index: 900;
+
+            transition: var(--transition);
+        }
+
+        #backToTop:hover {
+            transform: translateY(-4px);
+
+            background: rgba(255, 153, 0, 0.1);
+        }
+
+
+        /* =========================================================
+           SCROLL ANIMATION
+        ========================================================= */
+
+        .reveal {
+            opacity: 0;
+
+            transform: translateY(25px);
+
+            transition:
+                opacity 0.7s ease,
+                transform 0.7s ease;
+        }
+
+        .reveal.active {
+            opacity: 1;
+
+            transform: translateY(0);
+        }
+
+
+        /* =========================================================
+           RESPONSIVE
+        ========================================================= */
+
+        @media (max-width: 900px) {
+
+            .nav-wrapper {
+                position: absolute;
+
+                top: 78px;
+                left: 5%;
+                right: 5%;
+
+                display: none;
+
+                flex-direction: column;
+
+                align-items: stretch;
+
+                padding: 22px;
+
+                background: rgba(10, 15, 25, 0.97);
+
+                border: 1px solid var(--border-color);
+
+                border-radius: 14px;
+
+                backdrop-filter: blur(18px);
+            }
+
+            .nav-wrapper.active {
+                display: flex;
+            }
+
+            nav {
+                flex-direction: column;
+
+                gap: 18px;
+            }
+
+            .header-socials {
+                border-left: 0;
+
+                border-top: 1px solid var(--border-color);
+
+                padding-left: 0;
+
+                padding-top: 18px;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .hero {
+                grid-template-columns: 1fr;
+
+                text-align: center;
+
+                gap: 50px;
+            }
+
+            .hero-content {
+                margin: auto;
+            }
+
+            .hero-description {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .btn-group {
+                justify-content: center;
+            }
+
+            .hero-stats {
+                justify-content: center;
+            }
+
+            .hero-image-area {
+                order: -1;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+
+        @media (max-width: 600px) {
+
+            header {
+                padding: 15px 5%;
+            }
+
+            .hero {
+                padding-top: 120px;
+            }
+
+            .profile-img {
+                width: 250px;
+                height: 250px;
+            }
+
+            .floating-badge {
+                right: -10px;
+            }
+
+            section {
+                padding: 75px 0;
+            }
+
+            .about-list {
+                grid-template-columns: 1fr;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .certs-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-inner {
+                justify-content: center;
+
+                text-align: center;
+            }
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+
+    <!-- =========================================================
+         HEADER
+    ========================================================== -->
+
+    <header>
+
+        <div class="header-inner">
+
+            <a href="#about" class="logo">
+                <i class="fa-brands fa-aws"></i>
+                Cloud<span>Dev</span>
+            </a>
+
+
+            <button
+                class="menu-toggle"
+                id="menuToggle"
+                aria-label="Open navigation menu">
+
+                <i class="fa-solid fa-bars"></i>
+
+            </button>
+
+
+            <div class="nav-wrapper" id="navWrapper">
+
+                <nav>
+
+                    <a href="#about">About</a>
+
+                    <a href="#experience">Experience</a>
+
+                    <a href="#certifications">Certifications</a>
+
+                    <a href="#skills">Skills</a>
+
+                    <a href="#projects">Projects</a>
+
+                    <a href="#contact">Contact</a>
+
+                </nav>
+
+
+                <div class="header-socials">
+
+                    <a
+                        href="https://www.linkedin.com/in/mohamed-elkhabaty-138a1336b"
+                        target="_blank"
+                        rel="noopener"
+                        aria-label="LinkedIn">
+
+                        <i class="fa-brands fa-linkedin"></i>
+
+                    </a>
+
+
+                    <a
+                        href="https://github.com/mohamed66666-code"
+                        target="_blank"
+                        rel="noopener"
+                        aria-label="GitHub">
+
+                        <i class="fa-brands fa-github"></i>
+
+                    </a>
+
+
+                    <a
+                        href="https://www.facebook.com/mohamed.elkhabaty.14"
+                        target="_blank"
+                        rel="noopener"
+                        aria-label="Facebook">
+
+                        <i class="fa-brands fa-facebook"></i>
+
+                    </a>
+
+
+                    <a
+                        href="https://www.instagram.com/mohamed_elkhabaty6/"
+                        target="_blank"
+                        rel="noopener"
+                        aria-label="Instagram">
+
+                        <i class="fa-brands fa-instagram"></i>
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+
+    <!-- =========================================================
+         HERO
+    ========================================================== -->
+
+    <section class="hero" id="about">
+
+        <div class="hero-content reveal">
+
+            <div class="hero-badge">
+
+                <span class="status-dot"></span>
+
+                AWS Cloud Engineer
+
+            </div>
+
+
+            <h1>
+
+                Mohamed Elkhabaty
+                <span class="gradient-text">
+                    for Building  Secure & Scalable
+                </span>
+                Cloud Solutions
+
+            </h1>
+
+
+            <p class="hero-description">
+
+                I'm Mohamed Elkhabaty, a Computer Science student and
+                aspiring AWS Cloud Engineer focused on cloud architecture,
+                infrastructure, security, networking and DevOps automation.
+
+            </p>
+
+
+            <div class="btn-group">
+
+                <a
+                    href="#projects"
+                    class="btn btn-primary">
+
+                    <i class="fa-solid fa-code"></i>
+
+                    View My Projects
+
+                </a>
+
+
+                <a
+                    href="CV.pdf"
+                    class="btn btn-secondary"
+                    target="_blank">
+
+                    <i class="fa-solid fa-file-arrow-down"></i>
+
+                    Download CV
+
+                </a>
+
+            </div>
+
+
+            <div class="hero-stats">
+
+                <div class="stat">
+
+                    <strong>AWS</strong>
+
+                    <span>Cloud Platform</span>
+
+                </div>
+
+
+                <div class="stat">
+
+                    <strong>DevOps</strong>
+
+                    <span>Infrastructure</span>
+
+                </div>
+
+
+                <div class="stat">
+
+                    <strong>Security</strong>
+
+                    <span>Cloud Security</span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- Profile -->
+
+        <div class="hero-image-area reveal">
+
+            <div class="hero-image-wrapper">
+
+                <!-- Put your image in the same folder -->
+
+                <img
+                    src="photo_2026-09-03_17-10-57.jpg"
+                    alt="Mohamed Elkhabaty profile picture"
+                    class="profile-img">
+
+
+                <div class="floating-badge">
+
+                    <i class="fa-brands fa-aws"></i>
+
+                    <div>
+
+                        <span>Specialized in</span>
+
+                        <strong>AWS Cloud</strong>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================================================
+         ABOUT
+    ========================================================== -->
+
+    <section>
+
+        <div class="container">
+
+            <div class="section-header reveal">
+
+                <div class="section-label">
+                    About Me
+                </div>
+
+                <h2>
+                    Cloud-focused mindset
+                </h2>
+
+                <p>
+                    Combining software development, networking,
+                    cloud infrastructure and security.
+                </p>
+
+            </div>
+
+
+            <div class="about-grid">
+
+                <div class="about-card reveal">
+
+                    <h3>
+                        Who I Am
+                    </h3>
+
+                    <p>
+
+                        I'm a Computer Science student passionate about
+                        Cloud Computing, AWS, DevOps and Cybersecurity.
+                        I enjoy designing infrastructure, automating
+                        deployments and understanding how secure cloud
+                        environments are built.
+
+                    </p>
+
+
+                    <div class="about-list">
+
+                        <div class="about-item">
+
+                            <i class="fa-solid fa-graduation-cap"></i>
+
+                            Computer Science Student
+
+                        </div>
+
+
+                        <div class="about-item">
+
+                            <i class="fa-solid fa-cloud"></i>
+
+                            AWS Cloud
+
+                        </div>
+
+
+                        <div class="about-item">
+
+                            <i class="fa-solid fa-shield-halved"></i>
+
+                            Cloud Security
+
+                        </div>
+
+
+                        <div class="about-item">
+
+                            <i class="fa-solid fa-network-wired"></i>
+
+                            Networking
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="about-card reveal">
+
+                    <h3>
+                        What I Focus On
+                    </h3>
+
+                    <p>
+
+                        My current focus is building practical AWS
+                        projects involving highly available architectures,
+                        serverless applications, Infrastructure as Code,
+                        monitoring, identity management and cloud security.
+
+                    </p>
+
+
+                    <div class="about-list">
+
+                        <div class="about-item">
+
+                            <i class="fa-solid fa-server"></i>
+
+                            AWS Infrastructure
+
+                        </div>
+
+
+                        <div class="about-item">
+
+                            <i class="fa-solid fa-code-branch"></i>
+
+                            Infrastructure as Code
+
+                        </div>
+
+
+                        <div class="about-item">
+
+                            <i class="fa-solid fa-lock"></i>
+
+                            IAM & Security
+
+                        </div>
+
+
+                        <div class="about-item">
+
+                            <i class="fa-solid fa-gears"></i>
+
+                            Automation
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================================================
+         EXPERIENCE
+    ========================================================== -->
+
+    <section id="experience">
+
+        <div class="container">
+
+            <div class="section-header reveal">
+
+                <div class="section-label">
+                    Experience
+                </div>
+
+                <h2>
+                    Learning through practice
+                </h2>
+
+                <p>
+                    Academic, technical and project-based experience.
+                </p>
+
+            </div>
+
+
+            <div class="timeline">
+
+                <!-- Experience 1 -->
+
+                <div class="timeline-item reveal">
+
+                    <div class="timeline-dot"></div>
+
+                    <div class="timeline-card">
+
+                        <div class="timeline-date">
+                            2026
+                        </div>
+
+                        <h3>
+                            AWS Cloud Training
+                        </h3>
+
+                        <h4>
+                            AWS Academy
+                        </h4>
+
+                        <p>
+
+                            Hands-on learning across AWS Cloud Foundations,
+                            Cloud Architecting and Cloud Security Foundations,
+                            including IAM, VPC, EC2, S3, Lambda, monitoring,
+                            security and cloud architecture principles.
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Experience 2 -->
+
+                <div class="timeline-item reveal">
+
+                    <div class="timeline-dot"></div>
+
+                    <div class="timeline-card">
+
+                        <div class="timeline-date">
+                            2026
+                        </div>
+
+                        <h3>
+                            Cloud & Cybersecurity Training
+                        </h3>
+
+                        <h4>
+                            Technical Training
+                        </h4>
+
+                        <p>
+
+                            Studied networking, routing and switching,
+                            cybersecurity fundamentals, ethical hacking,
+                            cloud security and infrastructure concepts.
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Experience 3 -->
+
+                <div class="timeline-item reveal">
+
+                    <div class="timeline-dot"></div>
+
+                    <div class="timeline-card">
+
+                        <div class="timeline-date">
+                            2024 - Present
+                        </div>
+
+                        <h3>
+                            Computer Science Student
+                        </h3>
+
+                        <h4>
+                            Faculty of Computers & Information
+                        </h4>
+
+                        <p>
+
+                            Developing a strong foundation in programming,
+                            databases, networking, operating systems,
+                            software development and cloud technologies.
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================================================
+         CERTIFICATIONS
+    ========================================================== -->
+
+    <section id="certifications">
+
+        <div class="container">
+
+            <div class="section-header reveal">
+
+                <div class="section-label">
+                    Certifications
+                </div>
+
+                <h2>
+                    AWS Academy Certifications
+                </h2>
+
+                <p>
+                    Cloud training and professional development.
+                </p>
+
+            </div>
+
+
+            <div class="certs-grid">
+
+
+                <!-- Certificate 1 -->
+
+                <article class="cert-card reveal">
+
+                    <div class="cert-preview">
+
+                        <iframe
+                            src="AWS_Academy_Graduate___Cloud_Security_Foundations___Training_Badge_Badge20260902-20-moq67w.pdf#toolbar=0&navpanes=0"
+                            title="AWS Cloud Security Foundations Certificate">
+                        </iframe>
+
+                    </div>
+
+
+                    <div class="cert-body">
+
+                        <h3>
+                            AWS Academy Graduate -
+                            Cloud Security Foundations
+                        </h3>
+
+                        <p>
+
+                            Demonstrates knowledge of AWS security concepts,
+                            IAM controls, data protection and cloud security
+                            foundations.
+
+                        </p>
+
+
+                        <div class="cert-meta">
+
+                            <span class="issued">
+                                Issued: Sep 2026
+                            </span>
+
+
+                            <a
+                                href="AWS_Academy_Graduate___Cloud_Security_Foundations___Training_Badge_Badge20260902-20-moq67w.pdf"
+                                target="_blank"
+                                class="verify-btn">
+
+                                View PDF
+
+                                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+
+                <!-- Certificate 2 -->
+
+                <article class="cert-card reveal">
+
+                    <div class="cert-preview">
+
+                        <iframe
+                            src="AWS_Academy_Graduate___Cloud_Architecting___Training_Badge_Badge20260901-19-9vqw6z.pdf#toolbar=0&navpanes=0"
+                            title="AWS Cloud Architecting Certificate">
+                        </iframe>
+
+                    </div>
+
+
+                    <div class="cert-body">
+
+                        <h3>
+                            AWS Academy Graduate -
+                            Cloud Architecting
+                        </h3>
+
+                        <p>
+
+                            Covers cloud architecture principles,
+                            VPC design, availability, resilience and
+                            cost optimization.
+
+                        </p>
+
+
+                        <div class="cert-meta">
+
+                            <span class="issued">
+                                Issued: Sep 2026
+                            </span>
+
+
+                            <a
+                                href="AWS_Academy_Graduate___Cloud_Architecting___Training_Badge_Badge20260901-19-9vqw6z.pdf"
+                                target="_blank"
+                                class="verify-btn">
+
+                                View PDF
+
+                                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+
+                <!-- Certificate 3 -->
+
+                <article class="cert-card reveal">
+
+                    <div class="cert-preview">
+
+                        <iframe
+                            src="AWS_Academy_Graduate___Cloud_Foundations___Training_Badge_Badge20260901-20-pjy28k.pdf#toolbar=0&navpanes=0"
+                            title="AWS Cloud Foundations Certificate">
+                        </iframe>
+
+                    </div>
+
+
+                    <div class="cert-body">
+
+                        <h3>
+                            AWS Academy Graduate -
+                            Cloud Foundations
+                        </h3>
+
+                        <p>
+
+                            Core knowledge of AWS Cloud concepts,
+                            compute, storage, networking, global
+                            infrastructure and billing.
+
+                        </p>
+
+
+                        <div class="cert-meta">
+
+                            <span class="issued">
+                                Issued: Sep 2026
+                            </span>
+
+
+                            <a
+                                href="AWS_Academy_Graduate___Cloud_Foundations___Training_Badge_Badge20260901-20-pjy28k.pdf"
+                                target="_blank"
+                                class="verify-btn">
+
+                                View PDF
+
+                                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================================================
+         SKILLS
+    ========================================================== -->
+
+    <section id="skills">
+
+        <div class="container">
+
+            <div class="section-header reveal">
+
+                <div class="section-label">
+                    Technical Skills
+                </div>
+
+                <h2>
+                    Cloud Technology Stack
+                </h2>
+
+                <p>
+                    Technologies and tools I use for cloud infrastructure,
+                    development and security.
+                </p>
+
+            </div>
+
+
+            <div class="skills-grid">
+
+
+                <!-- AWS -->
+
+                <div class="skill-card reveal">
+
+                    <div class="skill-icon">
+
+                        <i class="fa-brands fa-aws"></i>
+
+                    </div>
+
+                    <h3>
+                        AWS Cloud
+                    </h3>
+
+                    <div class="tags">
+
+                        <span class="tag">EC2</span>
+                        <span class="tag">S3</span>
+                        <span class="tag">Lambda</span>
+                        <span class="tag">VPC</span>
+                        <span class="tag">RDS</span>
+                        <span class="tag">DynamoDB</span>
+                        <span class="tag">CloudFront</span>
+                        <span class="tag">Route 53</span>
+                        <span class="tag">CloudWatch</span>
+                        <span class="tag">EventBridge</span>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- DevOps -->
+
+                <div class="skill-card reveal">
+
+                    <div class="skill-icon">
+
+                        <i class="fa-solid fa-code-branch"></i>
+
+                    </div>
+
+                    <h3>
+                        DevOps & IaC
+                    </h3>
+
+                    <div class="tags">
+
+                        <span class="tag">Terraform</span>
+                        <span class="tag">CloudFormation</span>
+                        <span class="tag">Docker</span>
+                        <span class="tag">Git</span>
+                        <span class="tag">GitHub Actions</span>
+                        <span class="tag">CI/CD</span>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- Networking -->
+
+                <div class="skill-card reveal">
+
+                    <div class="skill-icon">
+
+                        <i class="fa-solid fa-network-wired"></i>
+
+                    </div>
+
+                    <h3>
+                        Networking
+                    </h3>
+
+                    <div class="tags">
+
+                        <span class="tag">TCP/IP</span>
+                        <span class="tag">IPv4</span>
+                        <span class="tag">IPv6</span>
+                        <span class="tag">VLAN</span>
+                        <span class="tag">Routing</span>
+                        <span class="tag">NAT</span>
+                        <span class="tag">DNS</span>
+                        <span class="tag">DHCP</span>
+                        <span class="tag">Cisco IOS</span>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- Security -->
+
+                <div class="skill-card reveal">
+
+                    <div class="skill-icon">
+
+                        <i class="fa-solid fa-shield-halved"></i>
+
+                    </div>
+
+                    <h3>
+                        Cloud Security
+                    </h3>
+
+                    <div class="tags">
+
+                        <span class="tag">IAM</span>
+                        <span class="tag">Least Privilege</span>
+                        <span class="tag">KMS</span>
+                        <span class="tag">CloudTrail</span>
+                        <span class="tag">WAF</span>
+                        <span class="tag">Security Groups</span>
+                        <span class="tag">NACLs</span>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- Programming -->
+
+                <div class="skill-card reveal">
+
+                    <div class="skill-icon">
+
+                        <i class="fa-solid fa-code"></i>
+
+                    </div>
+
+                    <h3>
+                        Programming
+                    </h3>
+
+                    <div class="tags">
+
+                        <span class="tag">Python</span>
+                        <span class="tag">JavaScript</span>
+                        <span class="tag">C++</span>
+                        <span class="tag">Java</span>
+                        <span class="tag">SQL</span>
+                        <span class="tag">HTML</span>
+                        <span class="tag">CSS</span>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- Tools -->
+
+                <div class="skill-card reveal">
+
+                    <div class="skill-icon">
+
+                        <i class="fa-solid fa-toolbox"></i>
+
+                    </div>
+
+                    <h3>
+                        Tools
+                    </h3>
+
+                    <div class="tags">
+
+                        <span class="tag">Linux</span>
+                        <span class="tag">VS Code</span>
+                        <span class="tag">Nmap</span>
+                        <span class="tag">Kali Linux</span>
+                        <span class="tag">Packet Tracer</span>
+                        <span class="tag">GitHub</span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================================================
+         PROJECTS
+    ========================================================== -->
+
+    <section id="projects">
+
+        <div class="container">
+
+            <div class="section-header reveal">
+
+                <div class="section-label">
+                    Projects
+                </div>
+
+                <h2>
+                    Cloud Architecture Projects
+                </h2>
+
+                <p>
+                    Practical cloud solutions and architecture experiments
+                    using AWS and Infrastructure as Code.
+                </p>
+
+            </div>
+
+
+            <div class="projects-grid">
+
+
+                <!-- PROJECT 1 -->
+
+                <article class="project-card reveal">
+
+                    <div class="architecture">
+
+                        <div class="arch-node">
+
+                            <i class="fa-brands fa-aws"></i>
+
+                            S3
+
+                        </div>
+
+
+                        <span class="arch-arrow">
+                            →
+                        </span>
+
+
+                        <div class="arch-node">
+
+                            <i class="fa-solid fa-bolt"></i>
+
+                            Lambda
+
+                        </div>
+
+
+                        <span class="arch-arrow">
+                            →
+                        </span>
+
+
+                        <div class="arch-node">
+
+                            <i class="fa-solid fa-database"></i>
+
+                            DynamoDB
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="project-content">
+
+                        <div class="project-number">
+                            PROJECT 01
+                        </div>
+
+                        <h3>
+                            Serverless Event-Driven API
+                        </h3>
+
+                        <p>
+
+                            Designed a serverless backend where S3 events
+                            trigger AWS Lambda to process data and store
+                            application information in DynamoDB.
+
+                        </p>
+
+
+                        <div class="tags">
+
+                            <span class="tag">AWS Lambda</span>
+
+                            <span class="tag">S3</span>
+
+                            <span class="tag">DynamoDB</span>
+
+                            <span class="tag">API Gateway</span>
+
+                            <span class="tag">Python</span>
+
+                        </div>
+
+
+                        <div class="project-footer">
+
+                            <div class="project-links">
+
+                                <a
+                                    href="https://github.com/"
+                                    target="_blank"
+                                    rel="noopener">
+
+                                    <i class="fa-brands fa-github"></i>
+
+                                    GitHub
+
+                                </a>
+
+
+                                <a href="#">
+
+                                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+
+                                    Demo
+
+                                </a>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+
+                <!-- PROJECT 2 -->
+
+                <article class="project-card reveal">
+
+                    <div class="architecture">
+
+                        <div class="arch-node">
+
+                            <i class="fa-solid fa-globe"></i>
+
+                            Users
+
+                        </div>
+
+
+                        <span class="arch-arrow">
+                            →
+                        </span>
+
+
+                        <div class="arch-node">
+
+                            <i class="fa-solid fa-network-wired"></i>
+
+                            VPC
+
+                        </div>
+
+
+                        <span class="arch-arrow">
+                            →
+                        </span>
+
+
+                        <div class="arch-node">
+
+                            <i class="fa-solid fa-server"></i>
+
+                            EC2
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="project-content">
+
+                        <div class="project-number">
+                            PROJECT 02
+                        </div>
+
+                        <h3>
+                            AWS Infrastructure with Terraform
+                        </h3>
+
+                        <p>
+
+                            Provisioned AWS infrastructure using Terraform,
+                            including VPC networking, subnets, routing,
+                            security groups and compute resources.
+
+                        </p>
+
+
+                        <div class="tags">
+
+                            <span class="tag">Terraform</span>
+
+                            <span class="tag">AWS VPC</span>
+
+                            <span class="tag">EC2</span>
+
+                            <span class="tag">IaC</span>
+
+                            <span class="tag">Networking</span>
+
+                        </div>
+
+
+                        <div class="project-footer">
+
+                            <div class="project-links">
+
+                                <a
+                                    href="https://github.com/"
+                                    target="_blank"
+                                    rel="noopener">
+
+                                    <i class="fa-brands fa-github"></i>
+
+                                    GitHub
+
+                                </a>
+
+
+                                <a href="#">
+
+                                    <i class="fa-solid fa-diagram-project"></i>
+
+                                    Architecture
+
+                                </a>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+
+                <!-- PROJECT 3 -->
+
+                <article class="project-card reveal">
+
+                    <div class="architecture">
+
+                        <div class="arch-node">
+
+                            <i class="fa-solid fa-users"></i>
+
+                            Users
+
+                        </div>
+
+
+                        <span class="arch-arrow">
+                            →
+                        </span>
+
+
+                        <div class="arch-node">
+
+                            <i class="fa-solid fa-lock"></i>
+
+                            IAM
+
+                        </div>
+
+
+                        <span class="arch-arrow">
+                            →
+                        </span>
+
+
+                        <div class="arch-node">
+
+                            <i class="fa-solid fa-cloud"></i>
+
+                            AWS
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="project-content">
+
+                        <div class="project-number">
+                            PROJECT 03
+                        </div>
+
+                        <h3>
+                            AWS Cloud Security Architecture
+                        </h3>
+
+                        <p>
+
+                            Designed a security-focused AWS environment
+                            using IAM policies, least privilege,
+                            CloudTrail logging, KMS and network security
+                            controls.
+
+                        </p>
+
+
+                        <div class="tags">
+
+                            <span class="tag">IAM</span>
+
+                            <span class="tag">KMS</span>
+
+                            <span class="tag">CloudTrail</span>
+
+                            <span class="tag">Security</span>
+
+                            <span class="tag">AWS</span>
+
+                        </div>
+
+
+                        <div class="project-footer">
+
+                            <div class="project-links">
+
+                                <a
+                                    href="https://github.com/"
+                                    target="_blank"
+                                    rel="noopener">
+
+                                    <i class="fa-brands fa-github"></i>
+
+                                    GitHub
+
+                                </a>
+
+
+                                <a href="#">
+
+                                    <i class="fa-solid fa-shield-halved"></i>
+
+                                    Security
+
+                                </a>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================================================
+         CONTACT
+    ========================================================== -->
+
+    <section id="contact">
+
+        <div class="container">
+
+            <div class="contact-box reveal">
+
+                <div class="section-label">
+                    Get In Touch
+                </div>
+
+
+                <h2>
+                    Let's Build Something
+                    <span class="gradient-text">
+                        on the Cloud
+                    </span>
+                </h2>
+
+
+                <p>
+
+                    I'm always interested in cloud engineering,
+                    AWS infrastructure, DevOps and cybersecurity
+                    opportunities.
+
+                </p>
+
+
+                <div class="contact-links">
+
+    <a
+        href="tel:+201032838023"
+        class="btn btn-primary">
+
+        <i class="fa-solid fa-phone"></i>
+
+        
+
+    </a>
+
+    <a
+        href="https://www.linkedin.com/in/mohamed-elkhabaty-138a1336b"
+        target="_blank"
+        rel="noopener"
+        class="btn btn-secondary">
+
+        <i class="fa-brands fa-linkedin"></i>
+
+        LinkedIn
+
+    </a>
+
+    <a
+        href="https://github.com/mohamed66666-code"
+        target="_blank"
+        rel="noopener"
+        class="btn btn-secondary">
+
+        <i class="fa-brands fa-github"></i>
+
+        GitHub
+
+    </a>
+
+</div>
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================================================
+         FOOTER
+    ========================================================== -->
+
+    <footer>
+
+        <div class="container">
+
+            <div class="footer-inner">
+
+                <p class="footer-copy">
+
+                    © 2026 Mohamed Elkhabaty.
+                    Built with HTML, CSS & JavaScript.
+
+                </p>
+
+
+                <div class="footer-socials">
+
+                    <a
+                        href="https://github.com/mohamed66666-code"
+                        target="_blank"
+                        rel="noopener"
+                        aria-label="GitHub">
+
+                        <i class="fa-brands fa-github"></i>
+
+                    </a>
+
+
+                    <a
+                        href="https://www.linkedin.com/in/mohamed-elkhabaty-138a1336b"
+                        target="_blank"
+                        rel="noopener"
+                        aria-label="LinkedIn">
+
+                        <i class="fa-brands fa-linkedin"></i>
+
+                    </a>
+
+
+                    
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+
+
+    <!-- Back To Top -->
+
+    <button
+        id="backToTop"
+        aria-label="Back to top">
+
+        <i class="fa-solid fa-arrow-up"></i>
+
+    </button>
+
+
+
+    <!-- =========================================================
+         JAVASCRIPT
+    ========================================================== -->
+
+    <script>
+
+        /* =====================================================
+           MOBILE MENU
+        ===================================================== */
+
+        const menuToggle =
+            document.getElementById("menuToggle");
+
+        const navWrapper =
+            document.getElementById("navWrapper");
+
+
+        menuToggle.addEventListener("click", () => {
+
+            navWrapper.classList.toggle("active");
+
+            const icon =
+                menuToggle.querySelector("i");
+
+            if (navWrapper.classList.contains("active")) {
+
+                icon.classList.remove("fa-bars");
+
+                icon.classList.add("fa-xmark");
+
+            } else {
+
+                icon.classList.remove("fa-xmark");
+
+                icon.classList.add("fa-bars");
+
+            }
+
+        });
+
+
+        /* Close mobile menu after clicking */
+
+        document.querySelectorAll("nav a").forEach(link => {
+
+            link.addEventListener("click", () => {
+
+                navWrapper.classList.remove("active");
+
+                const icon =
+                    menuToggle.querySelector("i");
+
+                icon.classList.remove("fa-xmark");
+
+                icon.classList.add("fa-bars");
+
+            });
+
+        });
+
+
+
+        /* =====================================================
+           SCROLL REVEAL
+        ===================================================== */
+
+        const revealElements =
+            document.querySelectorAll(".reveal");
+
+
+        const revealObserver =
+            new IntersectionObserver(
+
+                entries => {
+
+                    entries.forEach(entry => {
+
+                        if (entry.isIntersecting) {
+
+                            entry.target.classList.add("active");
+
+                            revealObserver.unobserve(
+                                entry.target
+                            );
+
+                        }
+
+                    });
+
+                },
+
+                {
+                    threshold: 0.12
+                }
+
+            );
+
+
+        revealElements.forEach(element => {
+
+            revealObserver.observe(element);
+
+        });
+
+
+
+        /* =====================================================
+           BACK TO TOP
+        ===================================================== */
+
+        const backToTop =
+            document.getElementById("backToTop");
+
+
+        window.addEventListener("scroll", () => {
+
+            if (window.scrollY > 500) {
+
+                backToTop.style.display = "grid";
+
+            } else {
+
+                backToTop.style.display = "none";
+
+            }
+
+        });
+
+
+        backToTop.addEventListener("click", () => {
+
+            window.scrollTo({
+
+                top: 0,
+
+                behavior: "smooth"
+
+            });
+
+        });
+
+
+
+        /* =====================================================
+           HEADER BACKGROUND ON SCROLL
+        ===================================================== */
+
+        const header =
+            document.querySelector("header");
+
+
+        window.addEventListener("scroll", () => {
+
+            if (window.scrollY > 50) {
+
+                header.style.background =
+                    "rgba(8, 12, 20, 0.94)";
+
+            } else {
+
+                header.style.background =
+                    "rgba(8, 12, 20, 0.78)";
+
+            }
+
+        });
+
+    </script>
+
+</body>
+</html>
+```
